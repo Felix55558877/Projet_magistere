@@ -1,1 +1,2 @@
-aa
+def test():
+    print("")
