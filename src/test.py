@@ -1,1 +1,1 @@
-print("coucuo")
+print("couo")
