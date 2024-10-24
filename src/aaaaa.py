@@ -1,4 +1,4 @@
-aa
-#coucou
-def ok():
-    return None
+
+def test():
+    print("")
+
