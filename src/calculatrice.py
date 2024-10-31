@@ -14,6 +14,7 @@ class calculette:
             self.g.dessinerDisque(x,y,30,"blue")
             self.g.afficherTexte(touche,x,y,"white",18)
         self.g.actualiser()
+
     def resultat(self, resultat):
         self.g.dessinerRectangle(30, 30, 340, 120, "grey")  # Efface l'écran
         self.g.afficherTexte(str(resultat), 200, 70, "black", 24)
