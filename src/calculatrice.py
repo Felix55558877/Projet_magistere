@@ -33,139 +33,93 @@ class calculette:
 
     def initgra(self):
         return None
+    def initchiffre(self):
+        chiffres = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        entree = ""
+        recup = False
+        while recup == False:
+            nombre = self.recupererchiffre()
+            if str(nombre) in chiffres:
+                entree += nombre
+
+    def creechiffre(self):
+        chiffres = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        entree = ""
+        recup = False
+        while recup == False:
+            nombre = self.recupererchiffre()
+            if str(nombre) in chiffres:
+                entree += nombre
+            if nombre == "+":
+                return (int(entree), "+")
+            if nombre == "-":
+                return (int(entree), "-")
+            if nombre == "x":
+                return (int(entree), "x")
+            if nombre == "AC":
+                return (int(entree), "AC")
+            if nombre == "DEL":
+                return (int(entree), "DEL")
+            if nombre == "/":
+                return (int(entree), "/")
+    def initcalcul(self):
+        chiffres = ["0","1","2","3","4","5","6","7","8","9"]
+        entree = ""
+        recup = False
+        while recup == False:
+            nombre = self.recupererchiffre()
+            if str(nombre) in chiffres:
+                entree += nombre
+            if nombre == "+":
+                return self.calcul(int(entree),"+")
+            if nombre == "-":
+                return self.calcul(int(entree), "-")
+            if nombre == "x":
+                return self.calcul(int(entree),"x")
+            if nombre == "AC":
+                return self.calcul(int(entree),"AC")
+            if nombre == "DEL":
+                entree = pop.entree
+            if nombre == "/":
+                return self.calcul(int(entree),"/")
 
 
 
-    def addition(self,nombre):
-        a = True
-        chiffre = ""
-        while a :
-            touche = self.recupererChiffre()
-            if touche == "exe" :
-                break
-            chiffre += str(touche)
-        number = int(nombre)
-        return nombre + number
 
-    def addition(self,nombre):
-        a = True
-        chiffre = ""
-        while a :
-            touche = self.recupererChiffre()
-            if touche == "exe" :
-                break
-            chiffre += str(touche)
-        number = int(nombre)
-        return nombre + number
-a=calculette()
-a.fonc()
 
-    def soustraction(self,nombre):
-        a = True
-        chiffre = ""
-        while a :
-            touche = self.recupererChiffre()
-            if touche == "exe" :
-                break
-            chiffre += str(touche)
-        number = int(nombre)
-        return nombre - number
+    def calcul(self, nombre, operation):
+        if operation == "+":
+            nv_nombre, operation2 = self.creechiffre()
+            resultat = nombre + int(nv_nombre)
+            return self.calcul(resultat,operation2)
 
-    def multiplication(self,nombre):
-        a = True
-        chiffre = ""
-        while a :
-            touche = self.recupererChiffre()
-            if touche == "exe" :
-                break
-            chiffre += str(touche)
-        number = int(nombre)
-        return nombre * number
+        if operation == "-":
+            nv_nombre, operation2 = self.creechiffre()
+            resultat = nombre - int(nv_nombre)
+            return self.calcul(resultat, operation2)
 
-    def calcul(self,nombre,operation):
-        if operation == "addition":
-            a = True
-            chiffre = ""
-            while a:
-                clic = self.recuperchiffre()
-                if clic == addition or clic == soustraction or clic == division or clic == multiplication :
-                    return self.str(clic)(number+nombre)
-                chiffre.add(clic)
-                number = int(chiffre)
-        if operation == "soustraction":
-            a = True
-            chiffre = ""
-            while a:
-                if clic == addition or clic == soustraction or clic == division or clic == multiplication :
-                    return self.str(clic)(number-nombre)
-                clic = None
-                chiffre.add(clic)
-                number = int(chiffre)
-        if operation == "multpilication":
-            a = True
-            chiffre = ""
-            while a:
-                if clic == addition or clic == soustraction or clic == division or clic == multiplication :
-                    return self.str(clic)(number*nombre)
-                clic = None
-                chiffre.add(clic)
-                number = int(chiffre)
+        if operation == "x":
+            nv_nombre, operation2 = self.creechiffre()
+            resultat = nombre * int(nv_nombre)
+            return self.calcul(resultat, operation2)
+
         if operation == "division":
-            a = True
-            chiffre = ""
-            while a:
-                if clic == addition or clic == soustraction or clic == division or clic == multiplication :
-                    return self.str(clic)(number/nombre)
-                clic = None
-                chiffre.add(clic)
-                number = int(chiffre)
-        if operation == "supprimer" :
+            nv_nombre, operation2 = self.creechiffre()
+            resultat = nombre / int(nv_nombre)
+            return self.calcul(resultat, operation2)
+
+        if operation == "DEL":
             nv_nombre = str(nombre)
             nv_nombre1 = pop.nv_nombre
             return self.calcul()
         if operation == "resultat":
             return nombre
 
-def calcul(self,nombre,operation):
-    if operation == "addition":
-        a = True
-        chiffre = ""
-        while a:
-            clic = self.recuperchiffre()
-            if clic == addition or clic == soustraction or clic == division or clic == multiplication :
-                return self.str(clic)(number+nombre)
-            chiffre.add(clic)
-            number = int(chiffre)
-    if operation == "soustraction":
-        a = True
-        chiffre = ""
-        while a:
-            if clic == addition or clic == soustraction or clic == division or clic == multiplication :
-                return self.str(clic)(number-nombre)
-            clic = None
-            chiffre.add(clic)
-            number = int(chiffre)
-    if operation == "multpilication":
-        a = True
-        chiffre = ""
-        while a:
-            if clic == addition or clic == soustraction or clic == division or clic == multiplication :
-                return self.str(clic)(number*nombre)
-            clic = None
-            chiffre.add(clic)
-            number = int(chiffre)
-    if operation == "division":
-        a = True
-        chiffre = ""
-        while a:
-            if clic == addition or clic == soustraction or clic == division or clic == multiplication :
-                return self.str(clic)(number/nombre)
-            clic = None
-            chiffre.add(clic)
-            number = int(chiffre)
-    if operation == "supprimer" :
-        nv_nombre = str(nombre)
-        nv_nombre1 = pop.nv_nombre
-        return self.calcul()
-    if operation == "resultat":
-        return nombre
+
+
+
+
+
+a=calculette()
+a.fonc()
+
