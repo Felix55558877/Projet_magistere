@@ -1,5 +1,4 @@
-from tkiteasy import *
-
+from tkiteasy1 import *
 class calculette:
     def __init__(self):
         self.g=ouvrirFenetre(400,600)
